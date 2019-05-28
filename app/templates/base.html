@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% if title %}
+    <title> {{ title }}</title>
+    {% else %}
+    <title>Employee Management System</title>
+    {% endif %}
+</head>
+<body>
+<div>EMS : <a href="/index"> Home </a>
+        <a href="/project"> Projects </a>
+        <a href="/profile"> Profile </a>
+        <a href="/contact"> ContactUs </a>
+        <a href="/login"> Login </a>
+    </div>
+    <hr>
+    {% block content %}
+    {% endblock %}
+</body>
+</html>
