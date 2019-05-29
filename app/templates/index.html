@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Hello</h1>
-    {% for user in users %}
-    <div><p><h3>{{user}}</h3></p></div>
-    {% endfor %}
+<div class="text-center">
+    <h1>Hello {{ current_user.username }}!</h1>
+    <h2> Welcome to Employee Management System</h2>
+</div>
 {% endblock %}

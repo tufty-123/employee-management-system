@@ -1,5 +1,13 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>You are at Profile Page</h1>
+<div class="text-center">
+    <h1>Profile</h1>
+    <hr>
+    <h3>Name : {{ current_user.name }}</h3>
+    <h3>Email : {{ current_user.email }}</h3>
+    <h3>Contact : {{ current_user.contact }}</h3>
+    <h3>Address : {{ current_user.address }}</h3>
+    <h3>Manager : {{ current_user.manager }}</h3>
+</div>
 {% endblock %}

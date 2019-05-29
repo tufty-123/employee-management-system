@@ -1,5 +1,24 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1> You are at Projects Page </h1>
+<div class="card bg-light my-4" style="width:400px">
+    <div class="card-header text-center">Projects</div>
+    <div class="card-body" style="padding-bottom: 5px;">
+        <div class="text-center">
+            {% if project %}
+            <p>Currently enrolled in {{ project.name }}</p>
+            {% endif %}
+        </div>
+        <form class="form-group" action="" method="post">
+            {{ form.hidden_tag() }}
+            <p>
+                {{ form.choice.label }}
+                {{ form.choice() }}
+            </p>
+            <p>
+                {{ form.submit() }}
+            </p>
+        </form>
+    </div>
+</div>
 {% endblock %}
