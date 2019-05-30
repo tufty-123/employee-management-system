@@ -1,3 +1,9 @@
+"""
+This module defines all context variables related to flask application,
+database, migrations, and login
+"""
+
+
 from flask import Flask
 from config import Config
 from flask_sqlalchemy import SQLAlchemy

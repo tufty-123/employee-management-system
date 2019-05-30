@@ -1,3 +1,9 @@
+"""
+Database Models
+This module contains different database class models defined in the project.
+"""
+
+
 from app import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
@@ -5,10 +11,14 @@ from app import login
 
 
 class Project(db.Model):
+    """
+    Project class pertaining to Project Table
+    """
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(120))
     description = db.Column(db.String(256))
     status = db.Column(db.String(120))
+    #Setting up one to many relationship between project and employee
     member = db.relationship('Employee', backref='project', lazy='dynamic')
 
     def __repr__(self):
@@ -16,6 +26,9 @@ class Project(db.Model):
 
 
 class Employee(UserMixin, db.Model):
+    """
+    Employee class pertaining to Employee Table
+    """
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(64), index=True, unique=True)
     email = db.Column(db.String(120), index=True, unique=True)
@@ -24,6 +37,7 @@ class Employee(UserMixin, db.Model):
     contact = db.Column(db.Integer)
     address = db.Column(db.String(120))
     manager = db.Column(db.String(120))
+    #project_id is foreign key to class Project
     project_id = db.Column(db.Integer, db.ForeignKey('project.id'))
 
     def set_password(self, password):

@@ -1,3 +1,8 @@
+"""
+Forms Module containing class models for different Forms used in the project.
+"""
+
+
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField, SubmitField, IntegerField, SelectField
 from wtforms.validators import DataRequired, ValidationError, Email, EqualTo
@@ -5,6 +10,9 @@ from app.models import Employee
 
 
 class LoginForm(FlaskForm):
+    """
+    This class represents the Login form present in login.html
+    """
     username = StringField('Username', validators=[DataRequired()])
     password = PasswordField('Password', validators=[DataRequired()])
     remember_me = BooleanField('Remember Me')
@@ -12,6 +20,9 @@ class LoginForm(FlaskForm):
 
 
 class RegistrationForm(FlaskForm):
+    """
+    This class represents the registration form present in register.html
+    """
     username = StringField('Username', validators=[DataRequired()])
     email = StringField('Email', validators=[DataRequired(), Email()])
     password = PasswordField('Password', validators=[DataRequired()])
@@ -34,5 +45,8 @@ class RegistrationForm(FlaskForm):
 
 
 class ProjectForm(FlaskForm):
+    """
+    This class represents the project form present in project.html
+    """
     choice = SelectField('Select Project', validators=[DataRequired()])
     submit = SubmitField('Add Project')
